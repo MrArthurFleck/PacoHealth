@@ -1,0 +1,11 @@
+/// A collection of feature flags for the HealthGPT app.
+enum FeatureFlags {
+    /// Skips the onboarding flow to enable easier development of features in the application
+    /// and to allow UI tests to skip the onboarding flow.
+    static let skipOnboarding = CommandLine.arguments.contains("--skipOnboarding")
+    /// Always show the onboarding when the application is launched. Makes it easy to modify
+    /// and test the onboarding flow without the need to manually remove the application or reset the simulator.
+    static let showOnboarding = CommandLine.arguments.contains("--showOnboarding")
+    /// Resets the keychain when the application is launched in order to facilitate testing of secure storage.
+    static let resetKeychain = CommandLine.arguments.contains("--resetKeychain")
+}
